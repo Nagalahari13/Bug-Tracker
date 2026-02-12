@@ -14,7 +14,7 @@ Base.metadata.create_all(bind=engine)
 
 security = HTTPBearer()
 
-# --- ADD THIS FUNCTION FOR SWAGGER AUTH BUTTON ---
+
 def custom_openapi():
     if app.openapi_schema:
         return app.openapi_schema
@@ -36,9 +36,9 @@ def custom_openapi():
     return app.openapi_schema
 
 app.openapi = custom_openapi
-# -------------------------------------------------
 
-# Include routes
+
+
 app.include_router(auth_router)
 app.include_router(project.router)
 app.include_router(ticket.router)
