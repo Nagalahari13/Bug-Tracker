@@ -14,7 +14,7 @@ def get_db():
     finally:
         db.close()
 
-# ------------------- CREATE TICKET -----------------------
+
 @router.post("/", response_model=TicketOut)
 def create_ticket(
     data: TicketCreate,
@@ -34,7 +34,7 @@ def create_ticket(
     return new_ticket
 
 
-# ------------------- GET ALL TICKETS ---------------------
+
 @router.get("/")
 def get_tickets(
     db: Session = Depends(get_db),
@@ -43,7 +43,7 @@ def get_tickets(
     return db.query(Ticket).all()
 
 
-# ------------------- UPDATE TICKET STATUS ----------------
+
 @router.put("/{ticket_id}/status")
 def update_status(
     ticket_id: int,
