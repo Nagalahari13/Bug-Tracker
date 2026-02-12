@@ -8,8 +8,8 @@ class Ticket(Base):
     id = Column(Integer, primary_key=True)
     title = Column(String, nullable=False)
     description = Column(Text, nullable=True)
-    status = Column(String, default="todo")  # todo | in_progress | done
-    priority = Column(String, default="medium")  # low | medium | high
+    status = Column(String, default="todo")  
+    priority = Column(String, default="medium")  
 
     project_id = Column(Integer, ForeignKey("projects.id"))
     assignee_id = Column(Integer, ForeignKey("users.id"))
