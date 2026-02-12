@@ -11,7 +11,7 @@ class JWTBearer(HTTPBearer):
             raise HTTPException(status_code=403, detail="Invalid token scheme")
         return credentials.credentials
 
-# ✔✔ THIS IS THE REAL FIX (You were missing this)
+
 def get_current_user(token: str = Depends(JWTBearer())):
     user = decodeJWT(token)
     if not user:
